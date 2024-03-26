@@ -28,7 +28,9 @@ export interface PythonEditorPluginConfig {
   }
 }
 
-export const pythonEditor = definePlugin((config: PythonEditorPluginConfig | undefined = {}) => {
+export const pythonEditor = definePlugin((config?: PythonEditorPluginConfig) => {
+  // eslint-disable-next-line no-param-reassign
+  config = config ?? {}
   const types = [
     portableTextFactory(config),
     pythonIdea,
