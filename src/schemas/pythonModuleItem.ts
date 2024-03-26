@@ -11,7 +11,7 @@ import AlternativeContentList from './AlternativeContentList'
 const pythonModuleItem = defineType({
   title: 'Module item',
   name: 'pythonModuleItem',
-  type: 'document',
+  type: 'object',
   preview: {
     select: {
       api: 'pythonApiEntry',
