@@ -27,28 +27,21 @@ Add it as a plugin in `sanity.config.ts` (or .js):
 
 ```ts
 import {defineConfig} from 'sanity'
-import {pythonEditor} from '@microbit/sanity-plugin-python-editor-v3'
+import {pythonEditor, structure} from '@microbit/sanity-plugin-python-editor-v3'
 
 export default defineConfig({
-  //...
-  plugins: [pythonEditor()],
+  // ...
+  plugins: [structureTool({structure}), pythonEditor()],
+  schema: {
+    types: yourSchemaTypes,
+  },
 })
 ```
 
-You can pass overrides to the editor that customise the "externalLink", "simpleImage"
-and "python" types by passing an alternative simple type definition to the overrides
-key of the config. These types must have the same name as the relevant key and be
-defined by the app.
+Using the exported structure is optional.
 
-```
-export default defineConfig({
-  plugins: [pythonEditor({
-    overrides: {
-      python: MyFancyPython
-    }
-  })],
-})
-```
+If you need to augment the types defined in this plugin then you can transform them in
+your app by providing a [function as the types field](https://www.sanity.io/docs/schema-types).
 
 ## Develop & test
 

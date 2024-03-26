@@ -3,9 +3,9 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {definePlugin, SchemaTypeDefinition} from 'sanity'
+import {definePlugin} from 'sanity'
 
-import {portableTextFactory} from './schemas/portableText'
+import portableText from './schemas/portableText'
 import python from './schemas/python'
 import pythonIdea from './schemas/pythonIdea'
 import pythonIdeasConfig from './schemas/pythonIdeasConfig'
@@ -15,40 +15,23 @@ import simpleImage from './schemas/simpleImage'
 import structure from './schemas/structure'
 import toolkit from './schemas/toolkit'
 import toolkitAlternativeContent from './schemas/toolkitAlternativeContent'
-import toolkitApiLink from './schemas/toolkitApiLink'
-import toolkitInternalLink from './schemas/toolkitInternalLink'
 import toolkitTopic from './schemas/toolkitTopic'
 import toolkitTopicEntry from './schemas/toolkitTopicEntry'
 
-export interface PythonEditorPluginConfig {
-  overrides?: {
-    externalLink?: SchemaTypeDefinition
-    simpleImage?: SchemaTypeDefinition
-    python?: SchemaTypeDefinition
-  }
-}
-
-export const pythonEditor = definePlugin((userConfig: PythonEditorPluginConfig | void) => {
-  const config = userConfig ?? {}
+export const pythonEditor = definePlugin(() => {
   const types = [
-    portableTextFactory(config),
+    portableText,
     pythonIdea,
     pythonIdeasConfig,
     pythonModule,
     pythonModuleItem,
     toolkit,
     toolkitAlternativeContent,
-    toolkitApiLink,
-    toolkitInternalLink,
     toolkitTopic,
     toolkitTopicEntry,
+    python,
+    simpleImage,
   ]
-  if (!config.overrides?.python) {
-    types.push(python)
-  }
-  if (!config.overrides?.simpleImage) {
-    types.push(simpleImage)
-  }
   return {
     name: '@microbit/python-editor-v3-sanity',
     schema: {
@@ -64,8 +47,6 @@ export {
   structure,
   toolkit,
   toolkitAlternativeContent,
-  toolkitApiLink,
-  toolkitInternalLink,
   toolkitTopic,
   toolkitTopicEntry,
 }

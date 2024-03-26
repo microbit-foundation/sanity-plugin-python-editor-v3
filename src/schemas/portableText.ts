@@ -3,42 +3,80 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {FaFileAlt as textIcon} from 'react-icons/fa'
-import {ArrayOfType, defineArrayMember, defineType, SchemaTypeDefinition} from 'sanity'
+import {
+  FaExternalLinkAlt as ExternalLinkIcon,
+  FaFileAlt as textIcon,
+  FaPaperclip as linkIcon,
+} from 'react-icons/fa'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
-import {PythonEditorPluginConfig} from '..'
-import externalLink from './externalLink'
-import toolkitApiLink from './toolkitApiLink'
-import toolkitInternalLink from './toolkitInternalLink'
+import {translatableReferenceOptions} from '../common/translation'
 
-export const portableTextFactory = (config: PythonEditorPluginConfig): SchemaTypeDefinition => {
-  return defineType({
-    name: 'toolkitContent',
-    title: 'toolkitContent',
-    type: 'array',
-    icon: textIcon,
-    of: [
-      defineArrayMember({
-        type: 'block',
-        styles: [
-          {title: 'Normal', value: 'normal'},
-          {title: 'H3', value: 'h3'},
+const portableText = defineType({
+  name: 'toolkitContent',
+  title: 'toolkitContent',
+  type: 'array',
+  icon: textIcon,
+  of: [
+    defineArrayMember({
+      type: 'block',
+      styles: [
+        {title: 'Normal', value: 'normal'},
+        {title: 'H3', value: 'h3'},
+      ],
+      marks: {
+        decorators: [
+          {title: 'Strong', value: 'strong'},
+          {title: 'Code', value: 'code'},
         ],
-        marks: {
-          decorators: [
-            {title: 'Strong', value: 'strong'},
-            {title: 'Code', value: 'code'},
-          ],
-          annotations: [
-            toolkitInternalLink,
-            toolkitApiLink,
-            config.overrides?.externalLink ?? externalLink,
-            // There seems to be an issue with validation-related types here, hence the kludge.
-          ] as unknown as ArrayOfType<'object' | 'reference', undefined>[],
-        },
-      }),
-      {type: 'python'},
-      {type: 'simpleImage'},
-    ],
-  })
-}
+        annotations: [
+          {
+            name: 'toolkitApiLink',
+            type: 'object',
+            title: 'Python API link',
+            icon: linkIcon,
+            fields: [
+              defineField({
+                name: 'name',
+                description: 'Fully qualified name, e.g. microbit.compass.get_x',
+                type: 'string',
+              }),
+            ],
+          },
+          {
+            name: 'toolkitInternalLink',
+            type: 'object',
+            title: 'Internal link',
+            icon: linkIcon,
+            fields: [
+              defineField({
+                name: 'reference',
+                type: 'reference',
+                options: translatableReferenceOptions,
+                to: [{type: 'toolkitTopicEntry'}, {type: 'toolkitTopic'}],
+              }),
+            ],
+          },
+          {
+            name: 'link',
+            type: 'object',
+            title: 'External link',
+            icon: ExternalLinkIcon,
+            fields: [
+              defineField({
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+                validation: (rule) => rule.required(),
+              }),
+            ],
+          },
+        ],
+      },
+    }),
+    {type: 'python'},
+    {type: 'simpleImage'},
+  ],
+})
+
+export default portableText
