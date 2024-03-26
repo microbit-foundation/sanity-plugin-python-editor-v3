@@ -13,7 +13,7 @@ import {slugField} from './slugs'
  * "Reference" for the document to be used.
  *
  * field: Entries - Used to link to toolkit topic(s) to serve as items in the
- * "Reference tab".
+ * "Reference" tab.
  */
 const toolkit = defineType({
   title: 'Toolkit',
@@ -33,14 +33,6 @@ const toolkit = defineType({
       validation: (Rule) => Rule.required(),
     }),
     slugField(),
-    defineField({
-      title: 'Description',
-      name: 'description',
-      type: 'string',
-      description: 'Short description displayed below the toolkit name',
-      translatable: true,
-      validation: (Rule) => Rule.required(),
-    }),
     defineField({
       title: 'Entries',
       name: 'contents',
