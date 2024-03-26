@@ -8,6 +8,13 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 import {languageField, translatableReferenceOptions} from '../common/translation'
 import {slugField} from './slugs'
 
+/**
+ * Used for the "Reference" tab of the Python editor. The document must be named
+ * "Reference" for the document to be used.
+ *
+ * field: Entries - Used to link to toolkit topic(s) to serve as items in the
+ * "Reference tab".
+ */
 const toolkit = defineType({
   title: 'Toolkit',
   name: 'toolkit',

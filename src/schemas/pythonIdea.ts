@@ -9,6 +9,10 @@ import {languageField} from '../common/translation'
 import {productsField} from './products'
 import {slugField} from './slugs'
 
+/**
+ * Used for items in the "Ideas" tab of the editor. Items added in the
+ * "Python ideas order" in the Ideas config document are visible.
+ */
 const pythonIdea = defineType({
   title: 'Idea',
   name: 'pythonIdea',

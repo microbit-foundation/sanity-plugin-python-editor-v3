@@ -7,6 +7,11 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 import {languageField, translatableReferenceOptions} from '../common/translation'
 
+/**
+ * Used to configure visible items in the "Ideas" tab of the editor.
+ *
+ * field: Python ideas order - references Python Ideas documents
+ */
 const pythonIdeasConfig = defineType({
   title: 'Ideas config',
   name: 'pythonIdeasConfig',
