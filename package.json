@@ -1,6 +1,6 @@
 {
   "name": "@microbit/sanity-plugin-python-editor-v3",
-  "version": "0.1.0-pre.9",
+  "version": "0.1.0-pre.10",
   "description": "Sanity schemas for the micro:bit Python Editor V3",
   "keywords": [
     "sanity",
@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "@sanity/incompatible-plugin": "^1.0.4",
-    "@sanity/ui": "^2.0.12",
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
@@ -62,12 +61,13 @@
     "react-is": "^18.2.0",
     "rimraf": "^5.0.5",
     "sanity": "^3.35.2",
-    "styled-components": "^5.3.11",
     "typescript": "^5.4.2"
   },
   "peerDependencies": {
     "react": "^18",
-    "sanity": "^3"
+    "sanity": "^3",
+    "@sanity/ui": "^1.0 || ^2.0",
+    "styled-components": "^5.0 || ^6.0"
   },
   "engines": {
     "node": ">=14"
