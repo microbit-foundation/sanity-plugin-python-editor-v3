@@ -33,7 +33,6 @@ const structure = (S: StructureBuilder) =>
             .title('Toolkit topic entries')
             .child(sourceDocumentTypeList(S, 'toolkitTopicEntry')),
           S.listItem().title('Python modules').child(sourceDocumentTypeList(S, 'pythonModule')),
-          singletonPage(S, 'pythonEditorConfig', 'Config').icon(ConfigIcon),
         ]),
     )
 

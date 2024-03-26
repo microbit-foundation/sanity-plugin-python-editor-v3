@@ -5,7 +5,7 @@
  */
 import {defineField, defineType} from 'sanity'
 
-import {translatableReferenceOptions} from '../common/translatable'
+import {translatableReferenceOptions} from '../common/translation'
 import AlternativeContentList from './AlternativeContentList'
 
 const pythonModuleItem = defineType({

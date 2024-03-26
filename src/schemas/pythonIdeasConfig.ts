@@ -5,7 +5,7 @@
  */
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
-import {alwaysTranslatable, translatableReferenceOptions} from '../common/translatable'
+import {languageField, translatableReferenceOptions} from '../common/translation'
 
 const pythonIdeasConfig = defineType({
   title: 'Ideas config',
@@ -15,7 +15,7 @@ const pythonIdeasConfig = defineType({
     language: 'en',
   },
   fields: [
-    ...alwaysTranslatable(),
+    languageField(),
     defineField({
       name: 'pythonIdeasOrder',
       title: 'Python ideas order',

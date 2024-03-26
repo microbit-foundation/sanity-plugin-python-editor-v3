@@ -6,7 +6,7 @@
 import {FaPaperclip as linkIcon} from 'react-icons/fa'
 import {defineField, defineType} from 'sanity'
 
-import {translatableReferenceOptions} from '../common/translatable'
+import {translatableReferenceOptions} from '../common/translation'
 
 const toolkitInternalLink = defineType({
   name: 'toolkitInternalLink',

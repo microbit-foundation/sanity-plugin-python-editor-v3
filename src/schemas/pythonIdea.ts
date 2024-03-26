@@ -5,7 +5,7 @@
  */
 import {defineField, defineType} from 'sanity'
 
-import {alwaysTranslatable} from '../common/translatable'
+import {languageField} from '../common/translation'
 import {productsField} from './products'
 import {slugField} from './slugs'
 
@@ -18,7 +18,7 @@ const pythonIdea = defineType({
     compatibility: ['microbitV1', 'microbitV2'],
   },
   fields: [
-    ...alwaysTranslatable(),
+    languageField(),
     defineField({
       title: 'Name',
       name: 'name',

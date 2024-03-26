@@ -5,7 +5,7 @@
  */
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
-import {alwaysTranslatable, translatableReferenceOptions} from '../common/translatable'
+import {languageField, translatableReferenceOptions} from '../common/translation'
 import {productsField} from './products'
 import {slugField} from './slugs'
 
@@ -18,7 +18,7 @@ const toolkitTopic = defineType({
     compatibility: ['microbitV1', 'microbitV2'],
   },
   fields: [
-    ...alwaysTranslatable(),
+    languageField(),
     defineField({
       title: 'Name',
       name: 'name',

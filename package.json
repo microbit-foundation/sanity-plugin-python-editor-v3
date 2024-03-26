@@ -1,6 +1,6 @@
 {
   "name": "@microbit/sanity-plugin-python-editor-v3",
-  "version": "0.1.0",
+  "version": "0.1.0-pre.1",
   "description": "Sanity schemas for the micro:bit Python Editor V3",
   "keywords": [
     "sanity",

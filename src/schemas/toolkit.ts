@@ -5,7 +5,7 @@
  */
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
-import {alwaysTranslatable, translatableReferenceOptions} from '../common/translatable'
+import {languageField, translatableReferenceOptions} from '../common/translation'
 import {slugField} from './slugs'
 
 const toolkit = defineType({
@@ -16,7 +16,7 @@ const toolkit = defineType({
     language: 'en',
   },
   fields: [
-    ...alwaysTranslatable(),
+    languageField(),
     defineField({
       title: 'Name',
       name: 'name',

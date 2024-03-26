@@ -7,7 +7,6 @@ import {definePlugin, SchemaTypeDefinition} from 'sanity'
 
 import {portableTextFactory} from './schemas/portableText'
 import python from './schemas/python'
-import pythonEditorConfig from './schemas/pythonEditorConfig'
 import pythonIdea from './schemas/pythonIdea'
 import pythonIdeasConfig from './schemas/pythonIdeasConfig'
 import pythonModule from './schemas/pythonModule'
@@ -22,17 +21,16 @@ import toolkitTopic from './schemas/toolkitTopic'
 import toolkitTopicEntry from './schemas/toolkitTopicEntry'
 
 export interface PythonEditorPluginConfig {
-  overrides: {
+  overrides?: {
     externalLink?: SchemaTypeDefinition
     simpleImage?: SchemaTypeDefinition
     python?: SchemaTypeDefinition
   }
 }
 
-export const pythonEditor = definePlugin((config: PythonEditorPluginConfig) => {
+export const pythonEditor = definePlugin((config: PythonEditorPluginConfig | undefined = {}) => {
   const types = [
     portableTextFactory(config),
-    pythonEditorConfig,
     pythonIdea,
     pythonIdeasConfig,
     pythonModule,
@@ -44,10 +42,10 @@ export const pythonEditor = definePlugin((config: PythonEditorPluginConfig) => {
     toolkitTopic,
     toolkitTopicEntry,
   ]
-  if (!config.overrides.python) {
+  if (!config.overrides?.python) {
     types.push(python)
   }
-  if (!config.overrides.simpleImage) {
+  if (!config.overrides?.simpleImage) {
     types.push(simpleImage)
   }
   return {
@@ -59,10 +57,8 @@ export const pythonEditor = definePlugin((config: PythonEditorPluginConfig) => {
 })
 
 export {
-  pythonEditorConfig,
   pythonIdea,
   pythonIdeasConfig,
-  pythonModule,
   pythonModuleItem,
   structure,
   toolkit,
