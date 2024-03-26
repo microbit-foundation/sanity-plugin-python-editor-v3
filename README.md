@@ -33,7 +33,8 @@ export default defineConfig({
   // ...
   plugins: [structureTool({structure}), pythonEditor()],
   schema: {
-    types: yourSchemaTypes,
+    // All necessary types are provided by the plugin.
+    types: [],
   },
 })
 ```
@@ -42,6 +43,15 @@ Using the exported structure is optional.
 
 If you need to augment the types defined in this plugin then you can transform them in
 your app by providing a [function as the types field](https://www.sanity.io/docs/schema-types).
+
+The Python Editor expects some minimum content:
+
+- A document of type `pythonIdeasConfig` with the ID `pythonIdeasConfig` and language "en".
+  If you use the suggested desk structure you can just publish the document under Ideas > Config.
+- A document of type `toolkit` with the name "Reference" and language "en".
+
+You'll want to add additional content otherwise the tabs will be blank but this is the minimum
+needed to avoid errors.
 
 ## Develop & test
 
