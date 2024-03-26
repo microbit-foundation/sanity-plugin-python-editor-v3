@@ -32,7 +32,7 @@ export const portableTextFactory = (config: PythonEditorPluginConfig): SchemaTyp
           annotations: [
             toolkitInternalLink,
             toolkitApiLink,
-            config.overrides.externalLink ?? externalLink,
+            config.overrides?.externalLink ?? externalLink,
             // There seems to be an issue with validation-related types here, hence the kludge.
           ] as unknown as ArrayOfType<'object' | 'reference', undefined>[],
         },
