@@ -9,6 +9,10 @@ import {languageField, translatableReferenceOptions} from '../common/translation
 import {productsField} from './products'
 import {slugField} from './slugs'
 
+/**
+ * Used as a toolkit topic in the "Reference" tab of the Python editor.
+ * field: Content - to reference toolkit topic entries for the topic
+ */
 const toolkitTopic = defineType({
   title: 'Topic',
   name: 'toolkitTopic',

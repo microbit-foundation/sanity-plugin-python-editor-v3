@@ -9,6 +9,9 @@ import {languageField} from '../common/translation'
 import {productsField} from './products'
 import {slugField} from './slugs'
 
+/**
+ * Used as the content of a toolkit topic in the "Reference" tab of the editor.
+ */
 const toolkitTopicEntry = defineType({
   title: 'Topic entry',
   name: 'toolkitTopicEntry',

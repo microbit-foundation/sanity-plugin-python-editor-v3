@@ -5,6 +5,15 @@
  */
 import {defineField, defineType} from 'sanity'
 
+/**
+ * Used to add and link a "Help" button on the Python editor autocomplete prompt
+ * for a specific Python function to content in the "Reference" tab
+ *
+ * field: Python module name - name of python module e.g. "gc"
+ * field: Reference Link item
+ *  param: API entry - name of functions in the module e.g. "enable", "collect"
+ *  param: Reference Link - Link to toolkit topic / toolkit topic entry
+ */
 const pythonModule = defineType({
   title: 'Python module',
   name: 'pythonModule',
