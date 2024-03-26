@@ -28,7 +28,8 @@ export interface PythonEditorPluginConfig {
   }
 }
 
-export const pythonEditor = definePlugin((config: PythonEditorPluginConfig) => {
+export const pythonEditor = definePlugin((userConfig: PythonEditorPluginConfig | void) => {
+  const config = userConfig ?? {}
   const types = [
     portableTextFactory(config),
     pythonIdea,
