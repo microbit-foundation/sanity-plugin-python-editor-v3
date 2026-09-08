@@ -8,6 +8,10 @@
   ],
   "license": "MIT",
   "author": "Micro:bit Educational Foundation <package-help@microbit.org>",
+  "allowScripts": {
+    "esbuild": true,
+    "fsevents": true
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
