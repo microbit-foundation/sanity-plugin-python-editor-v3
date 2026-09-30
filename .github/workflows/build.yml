@@ -22,9 +22,8 @@ jobs:
           cache: npm
       - run: npm install -g npm@${{ env.NPM_VERSION }} --registry=https://registry.npmjs.org
       - run: npm ci
+      - uses: microbit-foundation/npm-package-versioner-action@v3
       - run: npm run build
-      # The version in package.json is maintained by hand and must match the
-      # release tag; there is no versioner step here.
       - run: npm pack
       - uses: actions/upload-artifact@v7
         if: github.event_name == 'release'
