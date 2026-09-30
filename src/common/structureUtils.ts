@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import {DocumentIcon} from '@sanity/icons'
+import {DocumentIcon} from '@sanity/icons/Document'
 import React from 'react'
 import {StructureBuilder} from 'sanity/structure'
 
