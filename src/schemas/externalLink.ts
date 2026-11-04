@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {FaExternalLinkAlt as ExternalLinkIcon} from 'react-icons/fa'
-import {defineField, defineType} from 'sanity'
+import { FaExternalLinkAlt as ExternalLinkIcon } from 'react-icons/fa';
+import { defineField, defineType } from 'sanity';
 
 const externalLink = defineType({
   name: 'link',
@@ -19,6 +19,6 @@ const externalLink = defineType({
       validation: (rule) => rule.required(),
     }),
   ],
-})
+});
 
-export default externalLink
+export default externalLink;

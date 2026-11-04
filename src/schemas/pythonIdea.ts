@@ -3,11 +3,11 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
-import {languageField} from '../common/translation'
-import {productsField} from './products'
-import {slugField} from './slugs'
+import { languageField } from '../common/translation.js';
+import { productsField } from './products.js';
+import { slugField } from './slugs.js';
 
 /**
  * Used for items in the "Ideas" tab of the editor. Items added in the
@@ -48,6 +48,6 @@ const pythonIdea = defineType({
       translatable: true,
     }),
   ],
-})
+});
 
-export default pythonIdea
+export default pythonIdea;

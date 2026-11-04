@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {FaImage as ImageIcon} from 'react-icons/fa'
-import {defineField, defineType} from 'sanity'
+import { FaImage as ImageIcon } from 'react-icons/fa';
+import { defineField, defineType } from 'sanity';
 
 const simpleImage = defineType({
   title: 'Image',
@@ -23,6 +23,6 @@ const simpleImage = defineType({
       description: 'Alternative text for users who cannot see the content',
     }),
   ],
-})
+});
 
-export default simpleImage
+export default simpleImage;

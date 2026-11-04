@@ -21,10 +21,11 @@ jobs:
           node-version: '24.x'
           cache: npm
       - run: npm install -g npm@${{ env.NPM_VERSION }} --registry=https://registry.npmjs.org
-      - run: npm ci
       - uses: microbit-foundation/npm-package-versioner-action@v3
-      - run: npm run build
+      - run: npm ci
+      - run: npm run ci
       - run: npm pack
+        if: github.event_name == 'release'
       - uses: actions/upload-artifact@v7
         if: github.event_name == 'release'
         with:

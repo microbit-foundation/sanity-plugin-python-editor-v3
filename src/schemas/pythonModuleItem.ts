@@ -3,10 +3,10 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
-import {translatableReferenceOptions} from '../common/translation'
-import AlternativeContentList from './AlternativeContentList'
+import { translatableReferenceOptions } from '../common/translation.js';
+import AlternativeContentList from './AlternativeContentList.js';
 
 const pythonModuleItem = defineType({
   title: 'Module item',
@@ -18,18 +18,22 @@ const pythonModuleItem = defineType({
       topicOrTopicEntry: 'referenceLink.name',
       altContent: 'pythonAlternativeContentLink',
     },
-    prepare(selection) {
-      const {api, topicOrTopicEntry, altContent} = selection
-      let subtitle = ''
+    prepare(selection: {
+      api?: string;
+      topicOrTopicEntry?: string;
+      altContent?: string;
+    }) {
+      const { api, topicOrTopicEntry, altContent } = selection;
+      let subtitle = '';
       if (topicOrTopicEntry) {
         subtitle = `Reference link: ${topicOrTopicEntry} ${
           altContent ? `(${altContent})` : ''
-        }`.trim()
+        }`.trim();
       }
       return {
         title: api,
         subtitle: subtitle,
-      }
+      };
     },
   },
   fields: [
@@ -43,18 +47,18 @@ const pythonModuleItem = defineType({
       title: 'Reference link',
       name: 'referenceLink',
       type: 'reference',
-      to: [{type: 'toolkitTopic'}, {type: 'toolkitTopicEntry'}],
+      to: [{ type: 'toolkitTopic' }, { type: 'toolkitTopicEntry' }],
       description: 'Link to a toolkit topic or toolkit topic entry',
       options: translatableReferenceOptions,
       validation: (Rule) =>
         Rule.custom((_, context) => {
           const parent = context.parent as {
-            referenceLink?: string
-            pythonAlternativeContentLink?: string
-          }
+            referenceLink?: string;
+            pythonAlternativeContentLink?: string;
+          };
           return parent.pythonAlternativeContentLink && !parent.referenceLink
             ? 'A reference link must be set.'
-            : true
+            : true;
         }),
     }),
     defineField({
@@ -67,6 +71,6 @@ const pythonModuleItem = defineType({
       },
     }),
   ],
-})
+});
 
-export default pythonModuleItem
+export default pythonModuleItem;

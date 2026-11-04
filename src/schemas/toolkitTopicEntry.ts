@@ -3,11 +3,11 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
-import {languageField} from '../common/translation'
-import {productsField} from './products'
-import {slugField} from './slugs'
+import { languageField } from '../common/translation.js';
+import { productsField } from './products.js';
+import { slugField } from './slugs.js';
 
 /**
  * Used as the content of a toolkit topic in the "Reference" tab of the editor.
@@ -49,10 +49,11 @@ const toolkitTopicEntry = defineType({
     }),
     defineField({
       title: 'Alternative content',
-      description: 'Optional alternative content sections that can be chosen via a drop-down',
+      description:
+        'Optional alternative content sections that can be chosen via a drop-down',
       name: 'alternatives',
       type: 'array',
-      of: [{type: 'toolkitAlternativeContent'}],
+      of: [{ type: 'toolkitAlternativeContent' }],
       translatable: true,
     }),
     defineField({
@@ -66,12 +67,14 @@ const toolkitTopicEntry = defineType({
   validation: (Rule) =>
     Rule.custom((document) => {
       const completed =
-        (Array.isArray(document?.alternatives) && document.alternatives.length > 0 ? 1 : 0) +
-        (document?.alternativesLabel ? 1 : 0)
+        (Array.isArray(document?.alternatives) &&
+        document.alternatives.length > 0
+          ? 1
+          : 0) + (document?.alternativesLabel ? 1 : 0);
       return completed === 1
         ? 'If alternative content is provided both the label and sections must be set.'
-        : true
+        : true;
     }),
-})
+});
 
-export default toolkitTopicEntry
+export default toolkitTopicEntry;

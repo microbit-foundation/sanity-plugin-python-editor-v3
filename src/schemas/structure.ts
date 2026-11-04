@@ -3,11 +3,13 @@
  *
  * SPDX-License-Identifier: MIT
  */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import {FaCog as ConfigIcon} from 'react-icons/fa'
-import {StructureBuilder} from 'sanity/structure'
+import { FaCog as ConfigIcon } from 'react-icons/fa';
+import type { StructureBuilder } from 'sanity/structure';
 
-import {singletonPage, sourceDocumentTypeList} from '../common/structureUtils'
+import {
+  singletonPage,
+  sourceDocumentTypeList,
+} from '../common/structureUtils.js';
 
 const structure = (S: StructureBuilder) =>
   S.list()
@@ -19,16 +21,24 @@ const structure = (S: StructureBuilder) =>
           S.list()
             .id('python-ideas')
             .items([
-              S.listItem().title('Ideas').child(sourceDocumentTypeList(S, 'pythonIdea')),
+              S.listItem()
+                .title('Ideas')
+                .child(sourceDocumentTypeList(S, 'pythonIdea')),
               singletonPage(S, 'pythonIdeasConfig', 'Config').icon(ConfigIcon),
-            ]),
+            ])
         ),
-      S.listItem().title('Toolkits').child(sourceDocumentTypeList(S, 'toolkit')),
-      S.listItem().title('Toolkit topics').child(sourceDocumentTypeList(S, 'toolkitTopic')),
+      S.listItem()
+        .title('Toolkits')
+        .child(sourceDocumentTypeList(S, 'toolkit')),
+      S.listItem()
+        .title('Toolkit topics')
+        .child(sourceDocumentTypeList(S, 'toolkitTopic')),
       S.listItem()
         .title('Toolkit topic entries')
         .child(sourceDocumentTypeList(S, 'toolkitTopicEntry')),
-      S.listItem().title('Python modules').child(sourceDocumentTypeList(S, 'pythonModule')),
-    ])
+      S.listItem()
+        .title('Python modules')
+        .child(sourceDocumentTypeList(S, 'pythonModule')),
+    ]);
 
-export default structure
+export default structure;

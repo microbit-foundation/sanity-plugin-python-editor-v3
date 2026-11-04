@@ -3,9 +3,12 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
-import {languageField, translatableReferenceOptions} from '../common/translation'
+import {
+  languageField,
+  translatableReferenceOptions,
+} from '../common/translation.js';
 
 /**
  * Used to configure visible items in the "Ideas" tab of the editor.
@@ -26,17 +29,18 @@ const pythonIdeasConfig = defineType({
       title: 'Python ideas order',
       type: 'array',
       translatable: true,
-      description: 'Ideas listed in the sequence they will appear in the Python Editor.',
+      description:
+        'Ideas listed in the sequence they will appear in the Python Editor.',
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{type: 'pythonIdea'}],
+          to: [{ type: 'pythonIdea' }],
           options: translatableReferenceOptions,
         }),
       ],
       validation: (Rule) => Rule.unique(),
     }),
   ],
-})
+});
 
-export default pythonIdeasConfig
+export default pythonIdeasConfig;

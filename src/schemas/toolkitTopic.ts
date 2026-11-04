@@ -3,11 +3,14 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
-import {languageField, translatableReferenceOptions} from '../common/translation'
-import {productsField} from './products'
-import {slugField} from './slugs'
+import {
+  languageField,
+  translatableReferenceOptions,
+} from '../common/translation.js';
+import { productsField } from './products.js';
+import { slugField } from './slugs.js';
 
 /**
  * Used as a toolkit topic in the "Reference" tab of the Python editor.
@@ -64,11 +67,11 @@ const toolkitTopic = defineType({
         defineArrayMember({
           type: 'reference',
           options: translatableReferenceOptions,
-          to: [{type: 'toolkitTopicEntry'}],
+          to: [{ type: 'toolkitTopicEntry' }],
         }),
       ],
     }),
   ],
-})
+});
 
-export default toolkitTopic
+export default toolkitTopic;
