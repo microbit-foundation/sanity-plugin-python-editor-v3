@@ -61,7 +61,7 @@ needed to avoid errors.
 
 ```sh
 npm install
-npm run ci # lint, format check and build
+npm run ci # lint, format check, build and import check
 ```
 
 To try changes in a studio, run `npm run build` and install this directory into the
