@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import { DocumentIcon } from '@sanity/icons';
+import { DocumentIcon } from '@sanity/icons/Document';
 import type { StructureBuilder } from 'sanity/structure';
 
 export const sourceDocumentTypeList = (S: StructureBuilder, type: string) =>
