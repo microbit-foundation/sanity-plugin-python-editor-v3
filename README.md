@@ -21,22 +21,26 @@ npm install @microbit/sanity-plugin-python-editor-v3
 
 ## Usage
 
-> This is a **Sanity Studio v3** plugin.
+> This is a **Sanity Studio v6** plugin. It is published as an ES module only.
 
 Add it as a plugin in `sanity.config.ts` (or .js):
 
 ```ts
-import {defineConfig} from 'sanity'
-import {pythonEditor, structure} from '@microbit/sanity-plugin-python-editor-v3'
+import { defineConfig } from 'sanity';
+import { structureTool } from 'sanity/structure';
+import {
+  pythonEditor,
+  structure,
+} from '@microbit/sanity-plugin-python-editor-v3';
 
 export default defineConfig({
   // ...
-  plugins: [structureTool({structure}), pythonEditor()],
+  plugins: [structureTool({ structure }), pythonEditor()],
   schema: {
     // All necessary types are provided by the plugin.
     types: [],
   },
-})
+});
 ```
 
 Using the exported structure is optional.
@@ -55,11 +59,13 @@ needed to avoid errors.
 
 ## Develop & test
 
-This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
-with default configuration for build & watch scripts.
+```sh
+npm install
+npm run ci # lint, format check and build
+```
 
-See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
-on how to run this plugin with hotreload in the studio.
+To try changes in a studio, run `npm run build` and install this directory into the
+studio project with `npm install /path/to/sanity-plugin-python-editor-v3`.
 
 ## License
 

@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 const python = defineType({
   title: 'Python',
@@ -16,6 +16,6 @@ const python = defineType({
       type: 'text',
     }),
   ],
-})
+});
 
-export default python
+export default python;

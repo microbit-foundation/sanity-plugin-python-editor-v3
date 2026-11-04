@@ -1,9 +1,22 @@
 {
-  "extends": "./tsconfig.settings",
-  "include": ["./src", "./package.config.ts"],
   "compilerOptions": {
-    "rootDir": ".",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
     "jsx": "react-jsx",
-    "noEmit": true
-  }
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
 }

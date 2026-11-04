@@ -7,10 +7,10 @@ import {
   FaExternalLinkAlt as ExternalLinkIcon,
   FaFileAlt as textIcon,
   FaPaperclip as linkIcon,
-} from 'react-icons/fa'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+} from 'react-icons/fa';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
-import {translatableReferenceOptions} from '../common/translation'
+import { translatableReferenceOptions } from '../common/translation.js';
 
 const portableText = defineType({
   name: 'toolkitContent',
@@ -21,13 +21,13 @@ const portableText = defineType({
     defineArrayMember({
       type: 'block',
       styles: [
-        {title: 'Normal', value: 'normal'},
-        {title: 'H3', value: 'h3'},
+        { title: 'Normal', value: 'normal' },
+        { title: 'H3', value: 'h3' },
       ],
       marks: {
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Code', value: 'code'},
+          { title: 'Strong', value: 'strong' },
+          { title: 'Code', value: 'code' },
         ],
         annotations: [
           {
@@ -38,7 +38,8 @@ const portableText = defineType({
             fields: [
               defineField({
                 name: 'name',
-                description: 'Fully qualified name, e.g. microbit.compass.get_x',
+                description:
+                  'Fully qualified name, e.g. microbit.compass.get_x',
                 type: 'string',
               }),
             ],
@@ -53,7 +54,7 @@ const portableText = defineType({
                 name: 'reference',
                 type: 'reference',
                 options: translatableReferenceOptions,
-                to: [{type: 'toolkitTopicEntry'}, {type: 'toolkitTopic'}],
+                to: [{ type: 'toolkitTopicEntry' }, { type: 'toolkitTopic' }],
               }),
             ],
           },
@@ -74,9 +75,9 @@ const portableText = defineType({
         ],
       },
     }),
-    {type: 'python'},
-    {type: 'simpleImage'},
+    { type: 'python' },
+    { type: 'simpleImage' },
   ],
-})
+});
 
-export default portableText
+export default portableText;

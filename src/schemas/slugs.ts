@@ -3,10 +3,13 @@
  *
  * SPDX-License-Identifier: MIT
  */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import {defineField, SlugDefinition, SlugIsUniqueValidator} from 'sanity'
+import {
+  defineField,
+  type SlugDefinition,
+  type SlugIsUniqueValidator,
+} from 'sanity';
 
-import {isSlugUnique, slugify} from '../common/slugs'
+import { isSlugUnique, slugify } from '../common/slugs.js';
 
 export const slugField = (overrides: Partial<SlugDefinition> = {}) =>
   defineField({
@@ -21,14 +24,14 @@ export const slugField = (overrides: Partial<SlugDefinition> = {}) =>
     },
     validation: (Rule) => Rule.required(),
     ...overrides,
-  })
+  });
 
 const altContentSlugIsUnique: SlugIsUniqueValidator = async (slug, context) => {
-  const {document, parent, getClient} = context
-  const client = getClient({apiVersion: '2022-02-23'})
-  const id = document?._id
-  const key = (parent as {_key: string})._key
-  const result = await client.fetch(
+  const { document, parent, getClient } = context;
+  const client = getClient({ apiVersion: '2022-02-23' });
+  const id = document?._id;
+  const key = (parent as { _key: string })._key;
+  const result = await client.fetch<{ alternatives?: unknown } | null>(
     `*[_id == $id][0] {
         alternatives[!(_key == $key) && slug.current == $slug][0]
       }`,
@@ -36,10 +39,10 @@ const altContentSlugIsUnique: SlugIsUniqueValidator = async (slug, context) => {
       id,
       key,
       slug,
-    },
-  )
-  return !result?.alternatives
-}
+    }
+  );
+  return !result?.alternatives;
+};
 
 export const altContentSlugField = () =>
   defineField({
@@ -48,11 +51,11 @@ export const altContentSlugField = () =>
     description: 'URL component or ID based on the name',
     type: 'slug',
     options: {
-      source: (_, {parent}) => {
-        return (parent as {name: string}).name
+      source: (_, { parent }) => {
+        return (parent as { name: string }).name;
       },
       slugify,
       isUnique: altContentSlugIsUnique,
     },
     validation: (Rule) => Rule.required(),
-  })
+  });

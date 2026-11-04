@@ -3,9 +3,9 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
-import {altContentSlugField} from './slugs'
+import { altContentSlugField } from './slugs.js';
 
 const toolkitAlternativeContent = defineType({
   title: 'Alternative content',
@@ -28,6 +28,6 @@ const toolkitAlternativeContent = defineType({
       translatable: true,
     }),
   ],
-})
+});
 
-export default toolkitAlternativeContent
+export default toolkitAlternativeContent;

@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 /**
  * Used to add and link a "Help" button on the Python editor autocomplete prompt
@@ -29,9 +29,9 @@ const pythonModule = defineType({
       title: 'Reference Link',
       name: 'pythonModuleItem',
       type: 'array',
-      of: [{type: 'pythonModuleItem'}],
+      of: [{ type: 'pythonModuleItem' }],
     }),
   ],
-})
+});
 
-export default pythonModule
+export default pythonModule;

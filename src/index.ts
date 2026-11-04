@@ -3,20 +3,20 @@
  *
  * SPDX-License-Identifier: MIT
  */
-import {definePlugin} from 'sanity'
+import { definePlugin } from 'sanity';
 
-import portableText from './schemas/portableText'
-import python from './schemas/python'
-import pythonIdea from './schemas/pythonIdea'
-import pythonIdeasConfig from './schemas/pythonIdeasConfig'
-import pythonModule from './schemas/pythonModule'
-import pythonModuleItem from './schemas/pythonModuleItem'
-import simpleImage from './schemas/simpleImage'
-import structure from './schemas/structure'
-import toolkit from './schemas/toolkit'
-import toolkitAlternativeContent from './schemas/toolkitAlternativeContent'
-import toolkitTopic from './schemas/toolkitTopic'
-import toolkitTopicEntry from './schemas/toolkitTopicEntry'
+import portableText from './schemas/portableText.js';
+import python from './schemas/python.js';
+import pythonIdea from './schemas/pythonIdea.js';
+import pythonIdeasConfig from './schemas/pythonIdeasConfig.js';
+import pythonModule from './schemas/pythonModule.js';
+import pythonModuleItem from './schemas/pythonModuleItem.js';
+import simpleImage from './schemas/simpleImage.js';
+import structure from './schemas/structure.js';
+import toolkit from './schemas/toolkit.js';
+import toolkitAlternativeContent from './schemas/toolkitAlternativeContent.js';
+import toolkitTopic from './schemas/toolkitTopic.js';
+import toolkitTopicEntry from './schemas/toolkitTopicEntry.js';
 
 export const pythonEditor = definePlugin(() => {
   const types = [
@@ -31,14 +31,14 @@ export const pythonEditor = definePlugin(() => {
     toolkitTopicEntry,
     python,
     simpleImage,
-  ]
+  ];
   return {
     name: '@microbit/python-editor-v3-sanity',
     schema: {
       types,
     },
-  }
-})
+  };
+});
 
 export {
   pythonIdea,
@@ -49,4 +49,4 @@ export {
   toolkitAlternativeContent,
   toolkitTopic,
   toolkitTopicEntry,
-}
+};
